@@ -26,7 +26,7 @@ Sample Secure (DevSecOps) Pipeline with GithHub Actions (Ideal for Open Source P
 | DAST: Dynamic Application Security Testing              | [OWASP ZAP Basline Scan](https://github.com/marketplace/actions/owasp-zap-baseline-scan) |          |                                                     |
 
 Note: OWASP (Open Web Application Security Project) ZAP (Zed Attack Proxy)
-
+```
 Follow the following steps for fixing ZAP scan error "Resource not accessible by integration"
 
 Go to Settings of the repo
@@ -42,7 +42,7 @@ Make sure to Select Read and write permissions
 Check "Allow GitHub Actions to create and aprove pull requests"
 
 Click on Save button to save your changes.
-
+```
 
 ### DevSecOps Pipeline
 
