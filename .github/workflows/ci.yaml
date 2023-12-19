@@ -234,7 +234,7 @@ jobs:
 
       - name: Apply k8s manifests
         run: |
-          kubectl apply -f ./pod.yaml
+          kubectl apply -f pod.yaml
 
          
       - name: Wait for app
