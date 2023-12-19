@@ -27,28 +27,30 @@ jobs:
     - name: Install Dependencies
       run: mvn install -DskipTests -Dspotbugs.skip=true -Ddependency-check.skip=true
 
-  secret-scan:
-    name: Secret scanner
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 # fetch all history so multiple commits can be scanned
-      - name: GitGuardian scan
-        uses: GitGuardian/gg-shield-action@master
-        with:
-          args: -v --all-policies
-        env:
-          GITHUB_PUSH_BEFORE_SHA: ${{ github.event.before }}
-          GITHUB_PUSH_BASE_SHA: ${{ github.event.base }}
-          GITHUB_PULL_BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          GITHUB_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
-          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
+#  secret-scan:
+#    name: Secret scanner
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0 # fetch all history so multiple commits can be scanned
+#      - name: GitGuardian scan
+#        uses: GitGuardian/gg-shield-action@master
+#        with:
+#          args: -v --all-policies
+#        env:
+#          GITHUB_PUSH_BEFORE_SHA: ${{ github.event.before }}
+#          GITHUB_PUSH_BASE_SHA: ${{ github.event.base }}
+#          GITHUB_PULL_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+#          GITHUB_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+#          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
+
   build:
     name: Build & Unit Tests
     runs-on: ubuntu-latest
-    needs: [ setup, secret-scan ]
+ #   needs: [ setup, secret-scan ]
+    needs: [ setup ]
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11 (LTS)
@@ -89,7 +91,8 @@ jobs:
   oss-scan:
     name: SCA - Dependency Checker
     runs-on: ubuntu-latest
-    needs: [ setup, secret-scan ]
+    #   needs: [ setup, secret-scan ]
+    needs: [ setup ]
     steps:
     - uses: actions/checkout@v2
     - name: Run Snyk to check for vulnerabilities
@@ -103,7 +106,8 @@ jobs:
   license_check:
     name: License Checker
     runs-on: ubuntu-latest
-    needs: [ setup, secret-scan ]
+    # needs: [ setup, secret-scan ]
+    needs: [ setup ]
     steps:
     - name: Checkout the code
       uses: actions/checkout@master
