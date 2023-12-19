@@ -1,4 +1,4 @@
-# DevSecOps Pipelines with HitHub Actions Demo [Java app] 
+# DevSecOps Pipelines with GitHub Actions Demo [Java app] 
 
 [![CI_DevSecOps](https://github.com/adavarski/DevSecOps-GitHub-Actions-pipeline-java/workflows/CI_DevSecOps/badge.svg)](https://github.com/adavarski/DevSecOps-GitHub-Actions-pipeline-java/actions)
 
@@ -83,7 +83,7 @@ Ref: https://github.com/zaproxy/action-full-scan
 
 Ref: https://github.com/adavarski/k3d-GH-Actions
 
-### How to generate scan reports (Snyk & Docker Scout Trivy & OWASP ZAP)
+### How to generate scan reports (Snyk & Docker Scout & Trivy & OWASP ZAP)
 
 ### How to analyze scan reports (json & serif report files)
 
