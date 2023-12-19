@@ -1,9 +1,7 @@
 # [Java] [GitHub Actions] Secure Pipelines Demo
 
-[![CI_DevSecOps](https://github.com/adavarski/DevSecOps-GitHub-Actions-node-app/workflows/CI_DevSecOps/badge.svg)](https://github.com/adavarski/DevSevOps-GitHub-Actions-node-app/actions)
+[![CI_DevSecOps](https://github.com/adavarski/DevSecOps-GitHub-Actions-pipeline-java/workflows/CI_DevSecOps/badge.svg)](https://github.com/adavarski/DevSecOps-GitHub-Actions-pipeline-java/actions)
 
-
-[![Secure Pipeline Demo - Java](https://github.com/adavarski/DevSecOps-GitHub-Actions-pipeline-java/actions/workflows/build.yaml/badge.svg)](https://github.com/adavarski/DevSecOps-GitHub-Actions-pipeline-java/actions/workflows/build.yaml)
 
 Sample Secure Pipeline with GithHub Actions - Ideal for Open Source Projects
 
@@ -31,6 +29,7 @@ Sample Secure Pipeline with GithHub Actions - Ideal for Open Source Projects
 
 ![GitHub Pipeline](imgs/pipeline_light.png)
 
+Note: 
 
 OWASP (Open Web Application Security Project) ZAP (Zed Attack Proxy)
 
