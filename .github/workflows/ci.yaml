@@ -1,4 +1,4 @@
-name: Secure Pipeline Demo - Java
+name: CI_DevSecOps
 
 on:
  push:
