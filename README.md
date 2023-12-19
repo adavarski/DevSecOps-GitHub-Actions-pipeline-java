@@ -20,7 +20,7 @@ Sample Secure (DevSecOps) Pipeline with GithHub Actions
 | SAST: Static Code Analysis                              | [Spot Bugs](https://github.com/jwgmeligmeyling/spotbugs-github-action)                   |          |                                                     |
 | SAST: Static Code Analysis                              | [CodeQL](https://github.com/github/codeql-action)                                        |          |                                                     |
 | Container Scan                                          | [Docker Scout](https://github.com/marketplace/actions/docker-scout)                      |          |                                                     |
-| Container Scan                                          | [Trivy]((https://github.com/marketplace/actions/aqua-security-trivy))                    |          |                                                     |
+| Container Scan                                          | [Trivy](https://github.com/marketplace/actions/aqua-security-trivy)                      |          |                                                     |
 | Container Scan                                          | [Anchore](https://github.com/marketplace/actions/anchore-container-scan)                 |          |                                                     |
 | Container Lint                                          | [Dockle](https://github.com/marketplace/actions/runs-dockle)                             |          |                                                     |
 | K8s Hardening                                           | [Dockle](https://github.com/marketplace/actions/controlplane-kubesec)                    |          |                                                     |
@@ -32,7 +32,6 @@ Sample Secure (DevSecOps) Pipeline with GithHub Actions
 ### DevSecOps Pipeline
 
 ![GitHub Pipeline](imgs/pipeline_light.png)
-
 
 
 ### SCA Scan with Snyk:
