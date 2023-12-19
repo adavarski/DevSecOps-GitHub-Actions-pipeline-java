@@ -223,6 +223,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [sast, container-scan, container-lint, k8s-lint, oss-scan, license_check ]
     steps:
+      - uses: actions/checkout@v2
       - name: "Create single k3d Cluster with imported Registry"
         uses: AbsaOSS/k3d-action@v2
         with:
@@ -234,7 +235,7 @@ jobs:
 
       - name: Apply k8s manifests
         run: |
-          kubectl apply -f pod.yaml
+          kubectl apply -f ./pod.yaml
 
          
       - name: Wait for app
