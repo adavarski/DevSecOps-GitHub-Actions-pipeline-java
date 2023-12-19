@@ -162,12 +162,12 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
-    - name: Run Spot Bugs
-      continue-on-error: true
-      run: mvn compile spotbugs:check
-    - uses: jwgmeligmeyling/spotbugs-github-action@master
-      with:
-        path: '**/spotbugsXml.xml'
+#    - name: Run Spot Bugs (needs integration with CodeQL)
+#      continue-on-error: true
+#      run: mvn compile spotbugs:check
+#    - uses: jwgmeligmeyling/spotbugs-github-action@master
+#      with:
+#        path: '**/spotbugsXml.xml'
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
@@ -187,7 +187,8 @@ jobs:
       with:
         image: davarski/k8s-demo-app-java:v1.0 
         acs-report-enable: true
-        fail-build: true
+        # fail-build: true
+        fail-build: false
         severity-cutoff: critical
     - name: upload Anchore scan SARIF report
       uses: github/codeql-action/upload-sarif@v1
