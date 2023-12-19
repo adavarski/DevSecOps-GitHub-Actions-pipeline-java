@@ -185,7 +185,7 @@ jobs:
     - uses: anchore/scan-action@v2
       id: scan
       with:
-        image: davarski/k8s-demo-app-java:v1.0 .
+        image: davarski/k8s-demo-app-java:v1.0 
         acs-report-enable: true
         fail-build: true
         severity-cutoff: critical
@@ -201,7 +201,7 @@ jobs:
     steps:
     - uses: hands-lab/dockle-action@v1
       with:
-        image: davarski/k8s-demo-app-java:v1.0 .
+        image: davarski/k8s-demo-app-java:v1.0 
         exit-code: '1'
         exit-level: FATAL
 
