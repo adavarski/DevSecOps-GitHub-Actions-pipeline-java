@@ -24,7 +24,7 @@ Sample Secure Pipeline with GithHub Actions - Ideal for Open Source Projects
 | K8s Hardening                                           | [Dockle](https://github.com/marketplace/actions/controlplane-kubesec)                    |          |                                                     |
 | License Checker                                         | [License finder](https://github.com/pivotal/LicenseFinder)                               |          |                                                     |
 | DAST: Dynamic Application Security Testing              | [OWASP ZAP Basline Scan](https://github.com/marketplace/actions/owasp-zap-baseline-scan) |          |                                                     |
-|                                                         |                                                                                          |          |                                                     |
+
 
 # Pipeline
 
