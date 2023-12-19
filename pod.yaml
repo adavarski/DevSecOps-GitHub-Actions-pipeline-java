@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: spring-app
+    app: webapp
 spec:
   containers:
-    - name: app
-      image: sample-app:latest
+    - name: webapp
+      image: davarski/k8s-demo-app-java:v1.0
       resources:
         requests:
           memory: "64Mi"
@@ -22,3 +22,18 @@ spec:
           drop:
             - "ALL"
           add: ["NET_ADMIN", "SYS_TIME"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  selector:
+    app: webapp
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+          
+          
+          
