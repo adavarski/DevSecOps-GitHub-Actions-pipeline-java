@@ -25,8 +25,10 @@ Sample Secure (DevSecOps) Pipeline with GithHub Actions (Ideal for Open Source P
 | License Checker                                         | [License finder](https://github.com/pivotal/LicenseFinder)                               |          |                                                     |
 | DAST: Dynamic Application Security Testing              | [OWASP ZAP Basline Scan](https://github.com/marketplace/actions/owasp-zap-baseline-scan) |          |                                                     |
 
-Note: OWASP (Open Web Application Security Project) ZAP (Zed Attack Proxy)
+
 ```
+Note: OWASP (Open Web Application Security Project) ZAP (Zed Attack Proxy) -> 
+
 Follow the following steps for fixing ZAP scan error "Resource not accessible by integration"
 
 Go to Settings of the repo
