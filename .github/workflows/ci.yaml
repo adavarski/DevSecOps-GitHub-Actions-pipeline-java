@@ -115,8 +115,14 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        args: --severity-threshold=high
-
+        args: --severity-threshold=high --sarif-file-output=snyk-report.sarif
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+       name: snyk-findings
+       path: snyk-report.sarif
+      
   license_check:
     name: License Checker
     runs-on: ubuntu-latest
@@ -169,13 +175,13 @@ jobs:
 #      with:
 #        path: '**/spotbugsXml.xml'
 #    - name: Initialize CodeQL
-#      uses: github/codeql-action/init@v2
+#      uses: github/codeql-action/init@v3
 #      with:
 #        languages: java
 #    - name: Autobuild
-#      uses: github/codeql-action/autobuild@v2
+#      uses: github/codeql-action/autobuild@v3
 #    - name: Perform CodeQL Analysis
-#      uses: github/codeql-action/analyze@v2
+#      uses: github/codeql-action/analyze@v3
 
   container-scan:
     name: Scan Container Image
@@ -191,9 +197,43 @@ jobs:
         fail-build: false
         severity-cutoff: critical
  #   - name: upload Anchore scan SARIF report
- #     uses: github/codeql-action/upload-sarif@v2
+ #     uses: github/codeql-action/upload-sarif@v1
  #     with:
  #       sarif_file: ${{ steps.scan.outputs.sarif }}
+
+    - name: Docker Scout Scan
+      id: scan_docker_scout
+      uses: docker/scout-action@v1
+      with:
+       dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
+       dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
+       command: quickview,cves
+       only-severities: critical,high
+       sarif-file: scout-report.sarif
+       
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+       name: scout-findings
+       path: scout-report.sarif
+   
+    - uses: aquasecurity/trivy-action@master
+      id: scan_trivy
+      with:
+          image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/k8s-demo-app-java:v1.0'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          exit-code: '0'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+          
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+       name: trivy-findings
+       path: trivy-results.sarif         
 
   container-lint:
     name: Lint Dockerfile
