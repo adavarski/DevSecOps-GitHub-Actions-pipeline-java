@@ -1,14 +1,14 @@
-# [Java] [GitHub Actions] Secure Pipelines Demo
+# DevSecOps Pipelines with HitHub Actions Demo [Java app] 
 
 [![CI_DevSecOps](https://github.com/adavarski/DevSecOps-GitHub-Actions-pipeline-java/workflows/CI_DevSecOps/badge.svg)](https://github.com/adavarski/DevSecOps-GitHub-Actions-pipeline-java/actions)
 
-Sample Secure (DevSecOps) Pipeline with GithHub Actions (Ideal for Open Source Projects)
+Sample Secure (DevSecOps) Pipeline with GithHub Actions 
 
 ## Setup
 
 - Add Snyk API Token in GitHub Repositority Secrets - SNYK_TOKEN (https://app.snyk.io/account to get SNYK_TOKEN - login with GH)
 - Add Git Guardian API Token for in GitHub Repositority Secrets - GITGUARDIAN_API_KEY
-- Add DockeHub (or used Docker Registry) credentials ( example: DOCKERHUB_USERNAME, DOCKERHUB_TOKEN)
+- Add Docker Registry credentials ( Example -> DockerHub Registry: DOCKERHUB_USERNAME, DOCKERHUB_TOKEN)
 
 ## GitHub Actions Used 
 
