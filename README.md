@@ -94,7 +94,7 @@ https://www.defectdojo.org
 
 Add Product -> Add Engagenets (Import Scan results: SARIF files) -> Findings
 
-TODO: defectdojo_send_scans.py
+TODO: defectdojo_send_scans.py or use/create GitHub action
 
 <img src="imgs/defectdojo-java-app-ovwrview.png?raw=true" width="800">
 
