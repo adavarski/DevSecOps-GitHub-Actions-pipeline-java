@@ -96,18 +96,24 @@ Example: https://www.defectdojo.org
 
 https://github.com/DefectDojo/django-DefectDojo
 
-Add Product -> Add Engagemets (Import Scan results: SARIF files) -> Findings
-
-TODO: defectdojo_send_scans.py or use/create GitHub action
+Defectdojo UI: Add Product -> Add Engagemets (Import Scan results: SARIF/etc. files) -> Findings
 
 <img src="imgs/defectdojo-java-app-ovwrview.png?raw=true" width="800">
 
 <img src="imgs/defectdojo-java-app-findings.png?raw=true" width="800">
 
+TODO: defectdojo_import_scan.py used with GitHub Actions or use marketplace || create new GitHub Action.
+```
+Example:
 
-Add Product -> Add Engagemets (Import Scan results: SARIF files) -> Findings 
+Defectdojo UI: Add Product(example:JAVA-WEB-APP)-> Add New CI/CD Engagemets (example: scout) && Add Tests (Test type: SARIF) 
 
-https://github.com/alexgracianoarj/gitlab-pipeline-demo/blob/main/.gitlab-ci.yml (example python script to upload scan results to defectdojo)
+export DEFECT_DOJO_API_TOKEN=<API v2 Key>
+python3 defectdojo_import_scan.py --host http://192.168.1.99:8080 --product JAVA-WEB-APP ---engagement scout --report scout-report.sarif
+
+```
+
+Note: Example python script to upload scan results to defectdoj -> https://github.com/alexgracianoarj/gitlab-pipeline-demo/blob/main/.gitlab-ci.yml
 
 ### GitHub Code Scanning using GitHub Actions and Github CodeQL for Code scanning (SAST : Static Application Security Testing)
 
