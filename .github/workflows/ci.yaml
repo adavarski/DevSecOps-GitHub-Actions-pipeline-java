@@ -321,3 +321,33 @@ jobs:
 #          target: 'https://www.zaproxy.org'
 #          rules_file_name: '.zap/rules.tsv'
 #          cmd_options: '-a'
+#    - name: run the docker image
+#      run: |
+#          docker run -d -p 3000:3000 ${{ secrets.DOCKERHUB_USERNAME }}/k8s-demo-app:v1.0
+#     - name: ZAP Scan
+#        uses: zaproxy/action-baseline@v0.9.0
+#        with:
+#          target: 'http://localhost:3000'
+#          allow_issue_writing: true
+#          token: ${{ secrets.GITHUB_TOKEN }}
+          
+#  defectdojo_import_scan:
+#   name: Import Scout Scan to DefectDojo
+#   runs-on: ubuntu-latest
+
+#   steps:
+#   - name: Checkout code
+#     uses: actions/checkout@v2
+
+#   - name: Set up Python
+#     uses: actions/setup-python@v2
+#     with:
+#       python-version: 3.8
+
+#   - name: Install Requests
+#     run: pip install requests
+ 
+#   - name: Import Scout Scan 
+#     run: |
+#        export DEFECT_DOJO_API_TOKEN=548afd6fab3bea9794a41b31da0e9404f733e222
+#        python3 defectdojo_import_scan.py --host http://demo.defectdojo.org --product NODE-WEB-APP ---engagement scout --report scout-report.sarif
