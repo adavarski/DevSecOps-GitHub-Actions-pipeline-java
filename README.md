@@ -92,9 +92,9 @@ https://docs.github.com/en/code-security/code-scanning/integrating-with-code-sca
 
 SARIF (Static Analysis Results Interchange Format) 
 
-Example: https://www.defectdojo.org
+Example: https://www.defectdojo.org (vulnerability management tool)
 
-https://github.com/DefectDojo/django-DefectDojo
+Ref: https://github.com/DefectDojo/django-DefectDojo
 
 Defectdojo UI: Add Product -> Add Engagemets (Import Scan results: SARIF/etc. files) -> Findings
 
